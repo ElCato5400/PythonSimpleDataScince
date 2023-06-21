@@ -49,6 +49,19 @@ for i in range(len(data)):
 male_data = data[data["Gender"] == "Male"]
 female_data = data[data["Gender"] == "Female"]
 
+# get masseurs of central tendency
+male_average_gpa = male_data["GPA"].mean()
+female_average_gpa = female_data["GPA"].mean()
+
+male_mode_gpa = male_data["GPA"].mode()[0]
+female_mode_gpa = female_data["GPA"].mode()[0]
+
+male_median_gpa = male_data["GPA"].median()
+female_median_gpa = female_data["GPA"].median()
+
+print(f"{'Male GPA:':<15} Average = {male_average_gpa:.2f}, Mode = {male_mode_gpa:.2f}, Median = {male_median_gpa:.2f}")
+print(f"{'Female GPA:':<15} Average = {female_average_gpa:.2f}, Mode = {female_mode_gpa:.2f}, Median = {female_median_gpa:.2f}")
+
 def display_highest_majors(data, title):
     # Make a dict to store the total weighted GPA and count of students in each major
     majors_weighted_gpa_sum = {major: 0 for major in MAJORS_AR_TO_EN.values()}
